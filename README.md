@@ -71,8 +71,50 @@ evaluation/   Metrics and evaluation rubric
 paper/        Conference abstract and research notes
 ```
 
+## Literature grounding
+
+The framework is grounded in research on:
+
+- data provenance for responsible AI (fairness, accountability, transparency, explainability);
+- biomedical provenance, W3C PROV, interoperability, and reproducibility;
+- traceability across data, processes, artifacts, agents, and decisions;
+- healthcare AI governance across the system lifecycle;
+- auditable and source-verified clinical decision support;
+- causal versus associational reasoning in clinical AI.
+
+See `docs/related_work.md` and `docs/design_requirements.md`.
+
+## Build the A/B/C experiment
+
+The evidence catalog currently contains **34 governance test cases**.
+
+Generate all three experimental conditions deterministically:
+
+```bash
+python -m src.build_experiment
+```
+
+This produces **102 prompts** (34 evidence units × 3 conditions) under:
+
+```text
+experiments/generated/bpd_abc_prompts.jsonl
+```
+
+Generated experimental inputs are reproducible and can be run against one or more language models without changing the underlying evidence catalog.
+
+The model runner is intentionally separate from the prompt builder so that model/provider/version information can be logged independently.
+
+## Evaluation workflow
+
+1. Generate A/B/C prompts.
+2. Run the same evidence cases under each condition.
+3. Store outputs with model/version metadata.
+4. Blind reviewers to experimental condition where feasible.
+5. Score outputs using `evaluation/rubric.md`.
+6. Aggregate coded results using `evaluation/scoring.py`.
+
 ## Status
 
-**v0.1 — research architecture + first BPD evidence objects**
+**v0.2 — literature-grounded governance architecture + 34-case BPD evidence catalog + A/B/C experiment builder**
 
 This repository is an evolving research artifact. The initial goal is not to reproduce the full BPD GWAS, but to test whether structured evidence governance improves the reliability and auditability of AI-generated biomedical interpretations.
