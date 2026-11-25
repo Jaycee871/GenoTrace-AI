@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use GenoTrace-AI, please cite this software and the associated research output."
+title: "GenoTrace-AI"
+type: software
+authors:
+  - family-names: "Low"
+    given-names: "Pack Kwan"
+repository-code: "https://github.com/Jaycee871/GenoTrace-AI"
+license: MIT
+version: 0.1.0
