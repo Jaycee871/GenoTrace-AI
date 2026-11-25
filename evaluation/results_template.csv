@@ -1,0 +1,2 @@
+run_id,claim_id,condition,category,governance_risk,model,model_version,response,evidence_support,causal_discipline,population_boundary,uncertainty_retention,limitation_retention,traceability,causal_overreach_flag,unsupported_claim_flag,reviewer_id,notes
+BPD_GC_001_A,BPD_GC_001,A,genetic_correlation,causal_overreach,,,,,,,,,,,,,
