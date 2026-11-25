@@ -93,6 +93,64 @@
       "items": {
         "type": "string"
       }
+    },
+    "provenance_records": {
+      "type": "array",
+      "description": "Optional PROV-aligned provenance records linking entities, activities, and agents.",
+      "items": {
+        "type": "object",
+        "required": [
+          "entity",
+          "activity",
+          "agent"
+        ],
+        "properties": {
+          "entity": {
+            "type": "string",
+            "description": "Artifact or information object, e.g. source paper, dataset, evidence unit, generated claim."
+          },
+          "activity": {
+            "type": "string",
+            "description": "Transformation or analysis, e.g. GWAS, LDSC, PheWAS, AI interpretation, governance validation."
+          },
+          "agent": {
+            "type": "string",
+            "description": "Human or computational actor responsible for the activity."
+          },
+          "role": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "timestamp": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence_strength": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional qualitative evidence-strength label; must not be inferred when the source does not provide one."
     }
   },
   "additionalProperties": true
