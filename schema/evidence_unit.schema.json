@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GenoTrace Evidence Unit",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "claim",
+    "evidence_type",
+    "source",
+    "population",
+    "causal_status",
+    "allowed_interpretation",
+    "forbidden_interpretation",
+    "limitations"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "number",
+        "string",
+        "null"
+      ]
+    },
+    "confidence_interval": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "p_value": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "method": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source": {
+      "type": "string"
+    },
+    "population": {
+      "type": "string"
+    },
+    "phenotype_definition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "causal_status": {
+      "type": "string",
+      "enum": [
+        "ASSOCIATIONAL",
+        "CAUSAL",
+        "DESCRIPTIVE",
+        "PREDICTIVE",
+        "UNKNOWN"
+      ]
+    },
+    "allowed_interpretation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_interpretation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}
